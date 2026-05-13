@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Proposta Comercial — Kadosh Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="icon" type="image/png" href="faviconKadosh.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --blue:#2563eb;--blue-dark:#1d4ed8;
+  --blue-light:rgba(37,99,235,0.10);--blue-glow:rgba(37,99,235,0.32);
+  --text:#1e293b;--text-muted:#64748b;--border:#e2e8f0;
+  --white:#ffffff;--bg:#f8faff;
+  --glass-bg:rgba(255,255,255,0.65);
+  --font-display:'Bebas Neue',sans-serif;
+  --font-body:'Manrope',sans-serif;
+}
+html,body{width:100%;min-height:100%;background:var(--bg);color:var(--text);font-family:var(--font-body);overflow-x:hidden;scroll-behavior:smooth;cursor:none;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{opacity:0;transform:translateX(-50%) translateY(-14px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+@keyframes underlineIn{to{transform:scaleX(1)}}
+/* CURSOR */
+#cursor-dot,#cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity .3s;}
+#cursor-dot{width:6px;height:6px;background:var(--blue);}
+#cursor-ring{width:36px;height:36px;border:1.5px solid rgba(37,99,235,.55);background:rgba(37,99,235,.07);transition:width .25s cubic-bezier(.16,1,.3,1),height .25s cubic-bezier(.16,1,.3,1),background .25s,border-color .25s;}
+#cursor-ring.big{width:60px;height:60px;background:rgba(37,99,235,.13);border-color:rgba(37,99,235,.85);}
+/* NAV */
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:100;width:min(960px,calc(100% - 40px));display:flex;align-items:center;justify-content:space-between;padding:13px 28px;background:var(--glass-bg);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);border:1px solid var(--border);border-radius:14px;box-shadow:0 2px 24px rgba(37,99,235,.06),0 1px 0 rgba(255,255,255,.9) inset;animation:slideDown .7s .1s cubic-bezier(.16,1,.3,1) both;}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo-icon{width:32px;height:32px;background:var(--blue);border-radius:8px;display:grid;place-items:center;}
+.nav-logo-icon svg{width:18px;height:18px;fill:none;stroke:white;stroke-width:2.2;stroke-linecap:round;}
+.nav-logo-text{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.1em;color:var(--text);}
+.nav-logo-text span{color:var(--blue);}
+.nav-pill{display:inline-flex;align-items:center;gap:7px;padding:6px 16px;background:var(--blue-light);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
+.blink-dot{width:6px;height:6px;background:var(--blue);border-radius:50%;display:inline-block;animation:blink 2.2s infinite;}
+/* HERO */
+.hero{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:var(--blue-light);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:28px;animation:fadeUp .7s .4s cubic-bezier(.16,1,.3,1) both;}
+.hero-eyebrow{font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;animation:fadeUp .7s .5s cubic-bezier(.16,1,.3,1) both;}
+.hero-title{font-family:var(--font-display);font-size:clamp(2.8rem,9vw,8rem);line-height:.93;letter-spacing:.02em;color:var(--text);max-width:900px;margin-bottom:28px;animation:fadeUp .85s .6s cubic-bezier(.16,1,.3,1) both;}
+.hero-title .blue-word{color:var(--blue);position:relative;display:inline-block;}
+.hero-title .blue-word::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:4px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:left;animation:underlineIn .6s 1.3s cubic-bezier(.16,1,.3,1) forwards;}
+.hero-sub{font-size:.95rem;font-weight:400;line-height:1.8;color:var(--text-muted);max-width:460px;margin-bottom:48px;animation:fadeUp .8s .75s cubic-bezier(.16,1,.3,1) both;}
+.hero-stats{display:flex;gap:48px;padding-top:36px;border-top:1px solid var(--border);animation:fadeUp .8s .9s cubic-bezier(.16,1,.3,1) both;flex-wrap:wrap;justify-content:center;}
+.stat-item{text-align:center;}
+.stat-num{font-family:var(--font-display);font-size:2.4rem;letter-spacing:.04em;color:var(--text);line-height:1;}
+.stat-num span{color:var(--blue);}
+.stat-label{font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-top:4px;}
+/* SECTION */
+section{padding:96px 24px;position:relative;z-index:10;}
+.section-inner{max-width:1060px;margin:0 auto;}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;}
+.section-label::before{content:'';display:block;width:24px;height:1.5px;background:var(--blue);border-radius:1px;}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,4rem);color:var(--text);line-height:1;letter-spacing:.02em;margin-bottom:48px;}
+.section-title em{font-style:normal;color:var(--blue);}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
+.reveal.visible{opacity:1;transform:none;}
+/* CONFIG BOX */
+#config-box{background:rgba(37,99,235,.04);border:1.5px dashed rgba(37,99,235,.22);border-radius:18px;padding:28px 32px;margin-bottom:0;}
+#config-box .cfg-title{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.cfg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+.cfg-group{display:flex;flex-direction:column;gap:6px;}
+.cfg-group label{font-size:.63rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);}
+.cfg-group input,.cfg-group textarea{padding:10px 14px;background:var(--white);border:1px solid var(--border);border-radius:10px;font-family:var(--font-body);font-size:.88rem;color:var(--text);outline:none;transition:border-color .2s;cursor:none;resize:vertical;}
+.cfg-group input:focus,.cfg-group textarea:focus{border-color:var(--blue);}
+.cfg-group input::placeholder,.cfg-group textarea::placeholder{color:#b0bec5;}
+/* BENTO */
+#servicos{background:var(--bg);border-top:1px solid var(--border);}
+.bento-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:72px;gap:16px;}
+.bento-card{background:var(--white);border:1px solid var(--border);border-radius:18px;padding:30px;position:relative;overflow:hidden;cursor:none;transition:box-shadow .3s,border-color .3s;transform-style:preserve-3d;will-change:transform;}
+.bento-card::before{content:'';position:absolute;inset:0;background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(37,99,235,.06),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;border-radius:inherit;}
+.bento-card:hover{box-shadow:0 16px 48px rgba(37,99,235,.12);border-color:rgba(37,99,235,.2);}
+.bento-card:hover::before{opacity:1;}
+.card-a{grid-column:span 7;grid-row:span 5;}
+.card-b{grid-column:span 5;grid-row:span 3;}
+.card-c{grid-column:span 5;grid-row:span 2;}
+.card-d{grid-column:span 4;grid-row:span 3;}
+.card-e{grid-column:span 4;grid-row:span 3;}
+.card-f{grid-column:span 4;grid-row:span 3;}
+.card-icon{width:44px;height:44px;background:var(--blue-light);border-radius:12px;display:grid;place-items:center;margin-bottom:18px;transition:background .3s,transform .3s;}
+.bento-card:hover .card-icon{background:var(--blue);transform:scale(1.08) rotate(-4deg);}
+.card-icon svg{width:22px;height:22px;stroke:var(--blue);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s;}
+.bento-card:hover .card-icon svg{stroke:white;}
+.card-tag{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;display:block;}
+.card-name{font-family:var(--font-display);font-size:1.7rem;letter-spacing:.04em;color:var(--text);line-height:1.05;margin-bottom:10px;}
+.card-name.lg{font-size:2.6rem;}
+.card-desc{font-size:.83rem;line-height:1.7;color:var(--text-muted);}
+.corner-glow{position:absolute;top:-40px;right:-40px;width:120px;height:120px;background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);pointer-events:none;opacity:0;transition:opacity .4s;}
+.bento-card:hover .corner-glow{opacity:1;}
+@media(max-width:860px){.bento-grid{grid-template-columns:1fr 1fr;grid-auto-rows:auto;}.card-a,.card-b,.card-c,.card-d,.card-e,.card-f{grid-column:span 1;grid-row:span 1;padding:26px;}.card-a{grid-column:span 2;}}
+@media(max-width:520px){.bento-grid{grid-template-columns:1fr;}.card-a{grid-column:span 1;}}
+/* ENTREGÁVEIS */
+#entregaveis{background:var(--white);border-top:1px solid var(--border);}
+.deliver-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.deliver-list li{display:flex;align-items:center;gap:16px;padding:18px 24px;background:var(--bg);border:1px solid var(--border);border-radius:14px;font-size:.9rem;font-weight:500;color:var(--text);transition:border-color .2s,box-shadow .2s;}
+.deliver-list li:hover{border-color:rgba(37,99,235,.25);box-shadow:0 4px 20px rgba(37,99,235,.07);}
+.deliver-check{width:28px;height:28px;flex-shrink:0;background:var(--blue-light);border-radius:8px;display:grid;place-items:center;}
+.deliver-check svg{width:14px;height:14px;stroke:var(--blue);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+/* PRICING */
+#investimento{background:var(--bg);border-top:1px solid var(--border);}
+.price-card{background:var(--white);border:1px solid var(--border);border-radius:24px;padding:52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:40px;position:relative;overflow:hidden;box-shadow:0 8px 48px rgba(37,99,235,.06);}
+.price-card::before{content:'';position:absolute;top:-80px;right:-80px;width:280px;height:280px;background:radial-gradient(circle,rgba(37,99,235,.08),transparent 70%);pointer-events:none;}
+.price-eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.price-eyebrow::before{content:'';display:block;width:20px;height:1.5px;background:var(--blue);border-radius:1px;}
+.price-amount{font-family:var(--font-display);font-size:clamp(4rem,8vw,7rem);line-height:1;color:var(--text);letter-spacing:.02em;}
+.price-amount sup{font-size:2rem;color:var(--blue);vertical-align:super;margin-right:4px;}
+.price-note{font-size:.85rem;color:var(--text-muted);margin-top:8px;}
+.price-note strong{color:var(--text);}
+.price-right{display:flex;flex-direction:column;gap:14px;align-items:flex-end;}
+.validity-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 16px;background:var(--blue-light);border:1px solid rgba(37,99,235,.2);border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);}
+.btn-wpp{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--blue);color:white;border:none;border-radius:12px;font-family:var(--font-body);font-size:.95rem;font-weight:600;letter-spacing:.02em;cursor:none;box-shadow:0 8px 28px var(--blue-glow);text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.btn-wpp:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(37,99,235,.5);}
+.btn-wpp svg{width:20px;height:20px;fill:white;flex-shrink:0;}
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:40px 24px;text-align:center;background:var(--white);}
+.footer-logo{font-family:var(--font-display);font-size:1.7rem;letter-spacing:.1em;color:var(--text);margin-bottom:6px;}
+.footer-logo span{color:var(--blue);}
+footer p{font-size:.78rem;color:var(--text-muted);}
+@media print{#cursor-dot,#cursor-ring,#config-wrap,nav{display:none!important;}body{cursor:auto;}}
+@media(max-width:640px){nav{padding:11px 16px;}.hero{padding:120px 20px 60px;}section{padding:72px 18px;}.price-card{padding:32px 22px;}.price-right{align-items:flex-start;}.hero-stats{gap:24px;}#config-box{padding:20px 18px;}.cfg-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<nav>
+ <a class="nav-logo" href="#">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+    </div>
+    <span class="nav-logo-text">KADOSH<span>TECH</span></span>
+  </a>
+  <div class="nav-pill"><span class="blink-dot"></span>Proposta Comercial</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge"><span class="blink-dot"></span>Proposta Exclusiva</div>
+  <p class="hero-eyebrow">Preparada especialmente para</p>
+  <h1 class="hero-title"><span class="blue-word" id="display-cliente">Cookies Maromba</span></h1>
+  <p class="hero-sub">Confira abaixo todos os serviços, entregáveis e o investimento para transformar sua presença digital.</p>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">50<span>+</span></div><div class="stat-label">Projetos Entregues</div></div>
+    <div class="stat-item"><div class="stat-num">5<span>+</span></div><div class="stat-label">Anos de Experiência</div></div>
+    <div class="stat-item"><div class="stat-num">100<span>%</span></div><div class="stat-label">Satisfação</div></div>
+  </div>
+</div>
+
+<!-- CONFIG -->
+<section style="padding:0 24px 0;background:var(--bg);" id="config-wrap">
+  <div class="section-inner">
+    <div id="config-box">
+     
+      <div class="cfg-grid">
+        <div class="cfg-group"><label>Nome do Cliente</label><input id="cfg-cliente" placeholder="Ex: João Silva" value="Cookies Maromba" oninput="sync()"/></div>
+        <div class="cfg-group"><label>Valor Total (R$)</label><input id="cfg-valor" placeholder="Ex: 2.500,00" oninput="sync()"/></div>
+        <div class="cfg-group"><label>Forma de Pagamento</label><input id="cfg-pgto" placeholder="50% início · 50% entrega" oninput="sync()"/></div>
+        <div class="cfg-group"><label>Prazo de Entrega</label><input id="cfg-prazo" placeholder="Ex: 15 dias úteis" oninput="sync()"/></div>
+        <div class="cfg-group" style="grid-column:span 2"><label>Serviços (um por linha)</label><textarea id="cfg-servicos" rows="3" placeholder="Site Institucional&#10;Design Responsivo&#10;SEO Otimizado" oninput="sync()"></textarea></div>
+        <div class="cfg-group" style="grid-column:span 2"><label>Entregáveis (um por linha)</label><textarea id="cfg-entregaveis" rows="3" placeholder="Código-fonte entregue&#10;30 dias de suporte&#10;Domínio configurado" oninput="sync()"></textarea></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">O que será feito</div><h2 class="section-title">NOSSOS <em>SERVIÇOS</em></h2></div>
+    <div class="bento-grid reveal" id="bento-grid"></div>
+  </div>
+</section>
+
+<!-- ENTREGÁVEIS -->
+<section id="entregaveis">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">O que você recebe</div><h2 class="section-title">ENTREGÁVEIS <em>DO PROJETO</em></h2></div>
+    <ul class="deliver-list reveal" id="deliver-list"></ul>
+  </div>
+</section>
+
+<!-- INVESTIMENTO -->
+<section id="investimento">
+  <div class="section-inner">
+    <div class="reveal"><div class="section-label">Investimento</div><h2 class="section-title">VALOR DO <em>PROJETO</em></h2></div>
+    <div class="price-card reveal">
+      <div>
+        <div class="price-eyebrow">Investimento total</div>
+        <div class="price-amount"><sup>R$</sup><span id="display-valor">—</span></div>
+        <p class="price-note" id="display-pgto">Forma de pagamento a combinar</p>
+        <p class="price-note" style="margin-top:4px;">Prazo: <strong id="display-prazo">—</strong></p>
+      </div>
+      <div class="price-right">
+        <div class="validity-pill"><span class="blink-dot"></span>Válida por 7 dias</div>
+        <a class="btn-wpp" href="https://wa.me/5511943719478?text=Olá!%20Quero%20aceitar%20a%20proposta." target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Aceitar Proposta
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">KADOSH<span>TECH</span></div>
+  <p>Software Developer & Web Solutions — São Paulo, SP — kadoshtech33@gmail.com</p>
+</footer>
+
+<script>
+const ICONS=[
+  `<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+  `<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>`,
+  `<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>`,
+  `<svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`,
+  `<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  `<svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+];
+const CLASSES=['card-a','card-b','card-c','card-d','card-e','card-f'];
+const TAGS=['Serviço Principal','Mobile First','Visibilidade','Performance','Segurança','Destaque'];
+const DEF_S=['Site Personalizado','Design Responsivo','SEO Otimizado'];
+const DEF_E=['Projeto hospedado e no ar','30 dias de suporte pós-entrega','Domínio configurado (se necessário)','Treinamento para gestão de conteúdo'];
+
+function lines(id,def){const v=document.getElementById(id).value.trim();return v?v.split('\n').filter(Boolean):def;}
+
+function renderBento(services){
+  const g=document.getElementById('bento-grid');
+  g.innerHTML=services.map((s,i)=>`
+    <div class="bento-card ${CLASSES[i%CLASSES.length]}">
+      <div class="corner-glow"></div>
+      <div class="card-icon">${ICONS[i%ICONS.length]}</div>
+      <span class="card-tag">${TAGS[i%TAGS.length]}</span>
+      <div class="card-name ${i===0?'lg':''}">${s}</div>
+    </div>`).join('');
+  g.querySelectorAll('.bento-card').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const dx=(e.clientX-r.left-r.width/2)/(r.width/2);const dy=(e.clientY-r.top-r.height/2)/(r.height/2);c.style.transform=`perspective(900px) rotateY(${dx*8}deg) rotateX(${-dy*8}deg) scale3d(1.02,1.02,1.02)`;c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');});
+    c.addEventListener('mouseleave',()=>{c.style.transform='perspective(900px) rotateY(0) rotateX(0) scale3d(1,1,1)';});
+  });
+}
+function renderEntregaveis(list){
+  document.getElementById('deliver-list').innerHTML=list.map(d=>`<li><div class="deliver-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>${d}</li>`).join('');
+}
+function sync(){
+  document.getElementById('display-cliente').textContent=document.getElementById('cfg-cliente').value||'Cookies Maromba';
+  document.getElementById('display-valor').textContent=document.getElementById('cfg-valor').value||'—';
+  document.getElementById('display-pgto').textContent=document.getElementById('cfg-pgto').value||'Forma de pagamento a combinar';
+  document.getElementById('display-prazo').textContent=document.getElementById('cfg-prazo').value||'—';
+  renderBento(lines('cfg-servicos',DEF_S));
+  renderEntregaveis(lines('cfg-entregaveis',DEF_E));
+}
+sync();
+/* Reveal */
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+/* Cursor */
+(function(){const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');let rx=0,ry=0,dx=0,dy=0;window.addEventListener('mousemove',e=>{dx=e.clientX;dy=e.clientY;dot.style.left=dx+'px';dot.style.top=dy+'px';});(function l(){rx+=(dx-rx)*.14;ry+=(dy-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(l);})();document.querySelectorAll('a,button,.bento-card,.deliver-list li').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('big'));el.addEventListener('mouseleave',()=>ring.classList.remove('big'));});document.addEventListener('mouseleave',()=>{dot.style.opacity='0';ring.style.opacity='0';});document.addEventListener('mouseenter',()=>{dot.style.opacity='1';ring.style.opacity='1';});})();
+</script>
+</body>
+</html>
